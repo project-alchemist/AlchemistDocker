@@ -135,15 +135,6 @@ RUN cd /root && \
     cd ../.. && \
     rm -rf spdlog
 
-# Install Alchemist
-RUN cd /usr/local && \
-    git clone https://github.com/project-alchemist/Alchemist && \
-    cd Alchemist
-
-# Install ACIPython
-RUN cd /usr/local && \
-    git clone https://github.com/project-alchemist/ACIPython
-
 # Python stuff
 RUN pip install git+https://github.com/erichson/ristretto
 RUN pip install tqdm
@@ -151,6 +142,18 @@ RUN pip install h5py
 RUN pip install cmocean
 RUN pip install netCDF4
 RUN pip install git+https://github.com/matplotlib/basemap
+
+# Install Alchemist
+RUN cd /usr/local && \
+    git clone https://github.com/project-alchemist/Alchemist && \
+    cd Alchemist && \
+    git pull
+
+# Install ACIPython
+RUN cd /usr/local && \
+    git clone https://github.com/project-alchemist/ACIPython && \
+    cd ACIPython && \
+    git pull
 
 # use "$NB_USER" when installing python packages
 USER $NB_USER
