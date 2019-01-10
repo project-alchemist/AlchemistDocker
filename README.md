@@ -1,6 +1,6 @@
 # Alchemist Docker Image
 
-In orger to run use the following commands:
+In order to run use the following commands:
 
 ```bash
 docker build -t alchemist:0.2 .
