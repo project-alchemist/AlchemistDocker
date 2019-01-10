@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  alchemist:
+    build: ./alchemist
+    ports:
+      - 24960-24970:24960-24970
