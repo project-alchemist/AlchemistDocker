@@ -100,11 +100,10 @@ RUN cd /usr/local && \
 
 ENV TESTLIB_PATH /usr/local/TestLib
 
-
 RUN cd /usr/local && \
     git clone https://github.com/project-alchemist/TestLib.git && \
     cd $TESTLIB_PATH && \
-    sed -i "13 d;16 d;s/-larpack//g;s/-fopenmp/-fopenmp -fPIC/" ./build/Linux/Makefile && \
+    sed -i "s/-larpack//g" ./build/Linux/Makefile && \
     ./build.sh
 
 WORKDIR $ALCHEMIST_PATH
