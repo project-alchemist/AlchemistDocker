@@ -12,3 +12,5 @@ or via `docker-compose`:
 ```bash
 docker-compose up
 ```
+
+Make sure to create `.env` file with proper git hashes (look at `.default.env` example).

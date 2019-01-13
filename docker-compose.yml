@@ -2,6 +2,10 @@ version: '3'
 
 services:
   alchemist:
-    build: ./alchemist
+    build:
+      context: ./alchemist
+      args:
+        - TESTLIB_VERSION=$TESTLIB_VERSION
+        - ALCHEMIST_VERSION=$ALCHEMIST_VERSION
     ports:
       - 24960-24970:24960-24970
