@@ -1,15 +1,9 @@
 FROM ubuntu:18.04
 
-USER root
+RUN apt-get -y update && apt-get -y install apt-utils build-essential curl wget unzip sudo git cmake vim
 
-RUN apt-get -y update && apt-get -y upgrade                                                                                                                                                
-RUN apt-get install -y apt-utils
+RUN apt-get -y install mpich libopenblas-dev liblapack-dev libmetis-dev libparmetis-dev libboost-dev gfortran-6
 
-RUN apt-get -y install build-essential curl wget unzip sudo git cmake vim
-
-RUN apt-get install -y mpich
-
-RUN apt-get -y install libopenblas-dev liblapack-dev libmetis-dev libparmetis-dev libboost-dev gfortran-6
 RUN apt-get -y clean
 
 ENV ELEMENTAL_PATH /usr/local/elemental
@@ -114,8 +108,12 @@ RUN cd /usr/local && \
     sed -i "s/]/];/" build.sh && \
     ./build.sh
 
-WORKDIR $ALCHEMIST_PATH
+RUN groupadd -r alchemist && useradd --no-log-init -r -g alchemist alchemist
 
-RUN sed -i "s/mpiexec/mpiexec --allow-run-as-root/" start.sh
+RUN chown -R alchemist:alchemist $ALCHEMIST_PATH $TESTLIB_PATH
+
+USER alchemist
+
+WORKDIR $ALCHEMIST_PATH
 
 ENTRYPOINT ./start.sh
