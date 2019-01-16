@@ -93,7 +93,7 @@ RUN cd /usr/local && \
     git clone https://github.com/project-alchemist/Alchemist && \
     cd Alchemist && \
     git checkout $ALCHEMIST_VERSION && \
-    sed -i "s/j8/j4/" build.sh && \
+    sed -i "5 d" config.sh && \
     ./build.sh
 
 ENV TESTLIB_PATH /usr/local/TestLib
@@ -104,8 +104,7 @@ RUN cd /usr/local && \
     git clone https://github.com/project-alchemist/TestLib.git && \
     cd $TESTLIB_PATH && \
     git checkout $TESTLIB_VERSION && \
-    sed -i "s/-larpack//g" ./build/Linux/Makefile && \
-    sed -i "s/]/];/" build.sh && \
+    sed -i "s/]/];/;4 d" build.sh && \
     ./build.sh
 
 RUN groupadd -r alchemist && useradd --no-log-init -r -g alchemist alchemist
