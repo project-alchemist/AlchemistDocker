@@ -1,7 +1,19 @@
 version: '3'
 
 services:
+  base:
+    image: alchemist/base
+    container_name: alchemist_base
+    build:
+      context: ./base
+
   alchemist:
-    build: ./alchemist
+    image: alchemist:0.5
+    container_name: alchemist
+    build:
+      context: ./alchemist
+      args:
+        - TESTLIB_VERSION=$TESTLIB_VERSION
+        - ALCHEMIST_VERSION=$ALCHEMIST_VERSION
     ports:
       - 24960-24970:24960-24970
