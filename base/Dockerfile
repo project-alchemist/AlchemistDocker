@@ -20,7 +20,7 @@ RUN cd /root && \
     nice make -j4  && \
     make install  && \
     cd /root && \
-    rm -rf Elemental 
+    rm -rf Elemental
 
 ENV ARPACK_PATH /usr/local/arpack
 
@@ -47,7 +47,7 @@ RUN cd /root && \
     cmake -DCMAKE_INSTALL_PREFIX=${ARPACK_PATH} .. && \
     make install && \
     cd /root && \
-    rm -rf arpackpp 
+    rm -rf arpackpp
 
 ENV EIGEN_PATH /usr/local/eigen
 ENV EIGEN3_PATH /usr/local/eigen
@@ -62,7 +62,7 @@ RUN cd /root && \
     nice make -j4 && \
     make install && \
     cd /root && \
-    rm -rf eigen-eigen-5a0156e40feb 
+    rm -rf eigen-eigen-5a0156e40feb
 
 ENV SPDLOG_PATH /usr/local/spdlog
 
@@ -79,7 +79,7 @@ RUN cd /root && \
     unzip asio-1.12.1.zip && \
     cd asio-1.12.1 && ./configure --prefix=$ASIO_PATH && make install -j4 && \
     cd /root && rm -rf asio-1.12.1 asio-1.12.1.zip
-    
+
 
 ENV LD_LIBRARY_PATH $ELEMENTAL_PATH/lib
 
