@@ -20,7 +20,7 @@ RUN cd /root && \
     nice make -j4  && \
     make install  && \
     cd /root && \
-    rm -rf Elemental 
+    rm -rf Elemental
 
 ENV ARPACK_PATH /usr/local/arpack
 
@@ -47,7 +47,7 @@ RUN cd /root && \
     cmake -DCMAKE_INSTALL_PREFIX=${ARPACK_PATH} .. && \
     make install && \
     cd /root && \
-    rm -rf arpackpp 
+    rm -rf arpackpp
 
 ENV EIGEN3_PATH /usr/local/eigen3
 
@@ -61,7 +61,7 @@ RUN cd /root && \
     nice make -j4 && \
     make install && \
     cd /root && \
-    rm -rf eigen-eigen-5a0156e40feb 
+    rm -rf eigen-eigen-5a0156e40feb
 
 ENV SPDLOG_PATH /usr/local/spdlog
 
