@@ -4,6 +4,8 @@ ENV ALCHEMIST_PATH /usr/local/Alchemist
 
 ARG ALCHEMIST_VERSION
 
+ENV tt 10
+
 RUN cd /usr/local && \
     git clone https://github.com/project-alchemist/Alchemist && \
     cd Alchemist && \

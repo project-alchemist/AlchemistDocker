@@ -15,5 +15,6 @@ services:
       args:
         - TESTLIB_VERSION=$TESTLIB_VERSION
         - ALCHEMIST_VERSION=$ALCHEMIST_VERSION
+    hostname: localhost
     ports:
       - 24960-24970:24960-24970
